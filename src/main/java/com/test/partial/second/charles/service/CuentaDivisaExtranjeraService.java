@@ -33,8 +33,8 @@ public class CuentaDivisaExtranjeraService {
                 this.divisaService = divisaService;
         }
 
-        public CuentaDivisaExtranjeraDTO compraDivisa(String cuentaId, BigDecimal montoCompra, String monedaDestino) {
-                CuentaDivisaExtranjera cuenta = cuentaDivisaExtranjeraRepository.findById(cuentaId)
+        public CuentaDivisaExtranjeraDTO compraDivisa(String cuentaCode, BigDecimal montoCompra, String monedaDestino) {
+                CuentaDivisaExtranjera cuenta = cuentaDivisaExtranjeraRepository.findById(cuentaCode)
                                 .orElseThrow(() -> new RuntimeException("Cuenta no encontrada"));
 
                 CotizacionResponseDTO cotizacion = divisaService.obtenerCotizacion(cuenta.getTipoDivisa(),
@@ -58,8 +58,8 @@ public class CuentaDivisaExtranjeraService {
                 return cuentaDivisaExtranjeraMapper.toDTO(cuenta);
         }
 
-        public CuentaDivisaExtranjeraDTO ventaDivisa(String cuentaId, BigDecimal montoVenta, String monedaDestino) {
-                CuentaDivisaExtranjera cuenta = cuentaDivisaExtranjeraRepository.findById(cuentaId)
+        public CuentaDivisaExtranjeraDTO ventaDivisa(String cuentaCode, BigDecimal montoVenta, String monedaDestino) {
+                CuentaDivisaExtranjera cuenta = cuentaDivisaExtranjeraRepository.findById(cuentaCode)
                                 .orElseThrow(() -> new RuntimeException("Cuenta no encontrada"));
 
                 CotizacionResponseDTO cotizacion = divisaService.obtenerCotizacion(monedaDestino,

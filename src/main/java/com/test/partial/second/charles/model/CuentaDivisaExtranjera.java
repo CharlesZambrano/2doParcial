@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Getter;
@@ -15,11 +16,14 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Document(collection = "cuentaDivisaExtranjera")
+@Document(collection = "cuentaDivisaExtranjeras")
 public class CuentaDivisaExtranjera {
 
     @Id
     private String id;
+
+    @Indexed(unique = true)
+    private String code;
 
     private String tipoDivisa;
 

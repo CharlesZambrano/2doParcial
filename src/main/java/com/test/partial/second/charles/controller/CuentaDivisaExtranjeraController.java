@@ -31,16 +31,16 @@ public class CuentaDivisaExtranjeraController {
 
     @PostMapping("/compra")
     @Operation(summary = "Compra de divisa", description = "Permite la compra de divisa y registra el movimiento en el core bancario")
-    public CuentaDivisaExtranjeraDTO compraDivisa(@RequestParam String cuentaId, @RequestParam BigDecimal montoCompra,
+    public CuentaDivisaExtranjeraDTO compraDivisa(@RequestParam String cuentaCode, @RequestParam BigDecimal montoCompra,
             @RequestParam String monedaDestino) {
-        return cuentaDivisaExtranjeraService.compraDivisa(cuentaId, montoCompra, monedaDestino);
+        return cuentaDivisaExtranjeraService.compraDivisa(cuentaCode, montoCompra, monedaDestino);
     }
 
     @PostMapping("/venta")
     @Operation(summary = "Venta de divisa", description = "Permite la venta de divisa y registra el movimiento en el core bancario")
-    public CuentaDivisaExtranjeraDTO ventaDivisa(@RequestParam String cuentaId, @RequestParam BigDecimal montoVenta,
+    public CuentaDivisaExtranjeraDTO ventaDivisa(@RequestParam String cuentaCode, @RequestParam BigDecimal montoVenta,
             @RequestParam String monedaDestino) {
-        return cuentaDivisaExtranjeraService.ventaDivisa(cuentaId, montoVenta, monedaDestino);
+        return cuentaDivisaExtranjeraService.ventaDivisa(cuentaCode, montoVenta, monedaDestino);
     }
 
     @GetMapping("/posicionConsolidada/{clientId}")
