@@ -17,7 +17,7 @@ public interface CuentaDivisaExtranjeraMapper {
     class CuentaDivisaExtranjeraFactory {
         @ObjectFactory
         public CuentaDivisaExtranjera create(CuentaDivisaExtranjeraDTO dto) {
-            return new CuentaDivisaExtranjera(dto.getId(), dto.getTipoDivisa(), dto.getAccountNumber(),
+            return new CuentaDivisaExtranjera(dto.getId(), dto.getCode(), dto.getTipoDivisa(), dto.getAccountNumber(),
                     dto.getClientId(), dto.getSaldo(), null);
         }
     }

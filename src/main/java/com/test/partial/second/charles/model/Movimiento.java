@@ -33,8 +33,9 @@ public class Movimiento {
 
     private BigDecimal saldo;
 
-    public Movimiento(String id, Date fecha, String tipo, BigDecimal valor, BigDecimal saldo) {
+    public Movimiento(String id, String code, Date fecha, String tipo, BigDecimal valor, BigDecimal saldo) {
         this.id = id;
+        this.code = code;
         this.fecha = fecha;
         this.tipo = tipo;
         this.valor = valor;
@@ -46,6 +47,7 @@ public class Movimiento {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((code == null) ? 0 : code.hashCode());
         return result;
     }
 
@@ -63,6 +65,12 @@ public class Movimiento {
                 return false;
         } else if (!id.equals(other.id))
             return false;
+        if (code == null) {
+            if (other.code != null)
+                return false;
+        } else if (!code.equals(other.code))
+            return false;
         return true;
     }
+
 }

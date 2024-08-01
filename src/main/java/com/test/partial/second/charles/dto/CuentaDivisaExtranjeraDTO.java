@@ -15,6 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CuentaDivisaExtranjeraDTO {
     private String id;
+    private String code;
     private String tipoDivisa;
     private String accountNumber;
     private String clientId;

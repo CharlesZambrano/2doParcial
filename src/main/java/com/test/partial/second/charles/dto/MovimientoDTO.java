@@ -12,6 +12,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class MovimientoDTO {
     private String id;
+    private String code;
     private Date fecha;
     private String tipo;
     private BigDecimal valor;

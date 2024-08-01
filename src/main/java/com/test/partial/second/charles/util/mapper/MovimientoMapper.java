@@ -17,7 +17,8 @@ public interface MovimientoMapper {
     class MovimientoFactory {
         @ObjectFactory
         public Movimiento create(MovimientoDTO dto) {
-            return new Movimiento(dto.getId(), dto.getFecha(), dto.getTipo(), dto.getValor(), dto.getSaldo());
+            return new Movimiento(dto.getId(), dto.getCode(), dto.getFecha(), dto.getTipo(), dto.getValor(),
+                    dto.getSaldo());
         }
     }
 }

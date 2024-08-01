@@ -35,9 +35,10 @@ public class CuentaDivisaExtranjera {
 
     private List<Movimiento> movimientos;
 
-    public CuentaDivisaExtranjera(String id, String tipoDivisa, String accountNumber, String clientId, BigDecimal saldo,
-            List<Movimiento> movimientos) {
+    public CuentaDivisaExtranjera(String id, String code, String tipoDivisa, String accountNumber, String clientId,
+            BigDecimal saldo, List<Movimiento> movimientos) {
         this.id = id;
+        this.code = code;
         this.tipoDivisa = tipoDivisa;
         this.accountNumber = accountNumber;
         this.clientId = clientId;
@@ -50,6 +51,7 @@ public class CuentaDivisaExtranjera {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((code == null) ? 0 : code.hashCode());
         return result;
     }
 
@@ -67,6 +69,12 @@ public class CuentaDivisaExtranjera {
                 return false;
         } else if (!id.equals(other.id))
             return false;
+        if (code == null) {
+            if (other.code != null)
+                return false;
+        } else if (!code.equals(other.code))
+            return false;
         return true;
     }
+
 }
