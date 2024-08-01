@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CotizacionResponse {
+public class CotizacionResponseDTO {
     private String monedaDestino;
     private BigDecimal totalMonedaOrigen;
     private BigDecimal totalMonedaDestino;

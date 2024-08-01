@@ -36,6 +36,13 @@ public class CuentaDivisaExtranjeraController {
         return cuentaDivisaExtranjeraService.compraDivisa(cuentaId, montoCompra, monedaDestino);
     }
 
+    @PostMapping("/venta")
+    @Operation(summary = "Venta de divisa", description = "Permite la venta de divisa y registra el movimiento en el core bancario")
+    public CuentaDivisaExtranjeraDTO ventaDivisa(@RequestParam String cuentaId, @RequestParam BigDecimal montoVenta,
+            @RequestParam String monedaDestino) {
+        return cuentaDivisaExtranjeraService.ventaDivisa(cuentaId, montoVenta, monedaDestino);
+    }
+
     @GetMapping("/posicionConsolidada/{clientId}")
     @Operation(summary = "Posición consolidada del cliente", description = "Permite conocer el saldo en todas las monedas extranjeras que posee un cliente")
     public List<CuentaDivisaExtranjeraDTO> obtenerPosicionConsolidada(@PathVariable String clientId) {

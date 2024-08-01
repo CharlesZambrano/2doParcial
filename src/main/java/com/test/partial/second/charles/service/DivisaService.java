@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.test.partial.second.charles.dto.CotizacionResponse;
+import com.test.partial.second.charles.dto.CotizacionRequestDTO;
+import com.test.partial.second.charles.dto.CotizacionResponseDTO;
 
 @Service
 public class DivisaService {
@@ -16,11 +17,15 @@ public class DivisaService {
         this.restTemplate = restTemplate;
     }
 
-    public CotizacionResponse obtenerCotizacion(String monedaOrigen, String monedaDestino, BigDecimal montoCompra) {
-        String url = "http://fake-service/cotizacion?monedaOrigen=" + monedaOrigen + "&monedaDestino=" + monedaDestino
-                + "&montoCompra=" + montoCompra;
+    public CotizacionResponseDTO obtenerCotizacion(String monedaOrigen, String monedaDestino, BigDecimal montoCompra) {
+        String url = "http://fake-service/cotizacion";
 
-        // Simulación de la llamada al servicio externo
-        return restTemplate.getForObject(url, CotizacionResponse.class);
+        CotizacionRequestDTO request = CotizacionRequestDTO.builder()
+                .monedaOrigen(monedaOrigen)
+                .monedaDestino(monedaDestino)
+                .montoCompra(montoCompra)
+                .build();
+
+        return restTemplate.postForObject(url, request, CotizacionResponseDTO.class);
     }
 }
